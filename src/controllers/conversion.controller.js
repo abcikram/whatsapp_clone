@@ -2,13 +2,6 @@ import createHttpError from "http-errors";
 import logger from "../config/loggrer.config.js";
 import { createConversation, doesConversationExist, getUserConversations, populateConversation } from "../services/conversation.service.js";
 import { findUser } from "../services/user.service.js";
-//import logger from "../configs/logger.config.js";
-// import {
-//     createConversation,
-//     doesConversationExist,
-//     getUserConversations,
-//     populateConversation,
-// } from "../services/conversation.service.js";
 
 export const create_open_conversation = async (req, res, next) => {
     try {
