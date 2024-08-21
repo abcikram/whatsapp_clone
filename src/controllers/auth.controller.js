@@ -11,7 +11,7 @@ export const register = async (req, res, next) => {
 
         const newUser = await createUser({ name, email, picture, status, password })
 
-        console.log(process.env.ACCESS_TOKEN_SECRET)
+        // console.log(process.env.ACCESS_TOKEN_SECRET)
 
         const access_token = await generateToken(
             { userId: newUser._id },

@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import  { Server } from "socket.io";
 import app from './app.js'
 import logger from './config/loggrer.config.js'
 
@@ -23,6 +24,21 @@ let server;
 server = app.listen(PORT, () => {
     logger.info(`server is lisening on ${PORT}`)
 })
+
+
+//socket io :-
+
+const io = new Server(server, {
+    pingTimeout: 20000,
+    cors: {
+        origin: process.env.CLENT_ENDPOINT
+    }
+});
+
+
+io.on("connection", (socket) => {
+    logger.info('Socket is connected successfully')
+});
 
 const exitHandler = () => {
     if (server) {
